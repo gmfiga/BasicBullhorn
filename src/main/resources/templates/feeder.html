@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add a message!!</title>
+</head>
+<body>
+<form action="#" th:action="@{/feeder}" th:object="${message}"
+      method="post">
+    Write your thoughts!! :<input type="text" th:field="*{content}"/>
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span><br/>
+    Sent by :<input type="text" th:field="*{writer}"/>
+    <span th:if="${#fields.hasErrors('writer')}"
+          th:errors="*{writer}"></span><br/>
+    Post Date :<input type="text" th:field="*{postDate}"/>
+    <span th:if="${#fields.hasErrors('postDate')}"
+          th:errors="*{postDate}"></span><br/>
+    <input type="submit" value="POST IT!"/>
+</form>
+</body>
+</html>
